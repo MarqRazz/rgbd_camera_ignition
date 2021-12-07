@@ -1,6 +1,6 @@
 <package format="3">
   <name>rgbd_camera_ignition</name>
-  <version>0.1</version>
+  <version>0.0.1</version>
   <description>Demo using Ignition Gazebo simulation with ROS2.</description>
   <license>Apache 2.0</license>
   <maintainer email="lovro.ivanov@picknik.ai">Lovro Ivanov</maintainer>
