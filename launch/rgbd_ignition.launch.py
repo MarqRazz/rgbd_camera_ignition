@@ -106,11 +106,6 @@ def launch_setup(context, *args, **kwargs):
                    '/rgbd_camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo'],
         output='screen'
     )
-    rgbd_depth_static_tf = Node(package='tf2_ros',
-                                 executable='static_transform_publisher',
-                                 name='rgbd_static_transform_publisher',
-                                 output='log',
-                                 arguments=['0.0', '0.0', '0.0', '0', '0', '0', 'camera_bottom_screw_frame','rgbd_camera/camera_bottom_screw_frame/rgbd_camera'])
 
     nodes_to_start = [
         robot_state_publisher_node,
@@ -118,7 +113,6 @@ def launch_setup(context, *args, **kwargs):
         ignition_spawn_entity,
         ignition_launch_description,
         bridge,
-        rgbd_depth_static_tf,
     ]
 
     return nodes_to_start

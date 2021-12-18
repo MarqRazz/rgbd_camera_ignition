@@ -149,7 +149,15 @@ aluminum peripherial evaluation case.
             </xacro:usb_plug>
         </xacro:if>
 
-        <gazebo reference="${name}_bottom_screw_frame">
+        <gazebo reference="${name}_joint">
+            <preserveFixedJoint>true</preserveFixedJoint>
+        </gazebo>
+
+        <!-- <gazebo reference="${name}_link_joint">
+            <preserveFixedJoint>true</preserveFixedJoint>
+        </gazebo> -->
+
+        <gazebo reference="${name}_link">
             <sensor name="${sensor_name}" type="rgbd_camera">
                 <!--            this is detected by ros2 run tf2_ros tf2_echo camera_bottom_screw_frame camera_depth_optical_frame-->
 <!--                <pose>0.0 0.020 0.011 0.0 0.0 0.0</pose>-->
@@ -184,7 +192,7 @@ aluminum peripherial evaluation case.
                     <noise>
                         <type>gaussian</type>
                         <mean>0</mean>
-                        <stddev>0.007</stddev>
+                        <stddev>0.002</stddev>
                     </noise>
                     <depth_camera>
                         <clip>
