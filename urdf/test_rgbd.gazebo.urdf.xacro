@@ -4,9 +4,11 @@
     <xacro:arg name="use_nominal_extrinsics" default="true" />
     <xacro:arg name="add_plug" default="false" />
     <xacro:arg name="use_mesh" default="true" />
-    <xacro:include filename="$(find rgbd_camera_ignition)/urdf/rgbd.gazebo.urdf.xacro" />
+    <xacro:include filename="$(find rgbd_camera_ignition)/urdf/rgbd_macro.gazebo.urdf.xacro" />
 
     <link name="world"/>
+    <gazebo reference="world">
+    </gazebo>
     <xacro:sensor_d415 parent="world" name="camera" sensor_name="rgbd_camera" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
         <origin xyz="0.0 0.0 0.15" rpy="0.0 0 0.0"/>
     </xacro:sensor_d415>
