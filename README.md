@@ -8,10 +8,11 @@ Simple package that showcases use of rgbd camera in ignition.
 
 [Ignition Sensors](https://ignitionrobotics.org/api/sensors/6.0/installation.html)
 
-[ROS Rolling](https://docs.ros.org/en/rolling/Installation.html)
+[ROS Humble](https://docs.ros.org/en/humble/Installation.html)
 
 ## Build
 ```
+export GZ_VERSION=fortress
 export COLCON_WS=~/workspace/ws_rgbd
 mkdir -p $COLCON_WS/src
 cd $COLCON_WS
