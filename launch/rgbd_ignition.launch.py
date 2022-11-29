@@ -75,7 +75,7 @@ def launch_setup(context, *args, **kwargs):
     )
     # Ignition nodes
     ignition_spawn_entity = Node(
-        package="ros_ign_gazebo",
+        package="ros_gz_sim",
         executable="create",
         output="screen",
         arguments=[
@@ -90,9 +90,9 @@ def launch_setup(context, *args, **kwargs):
 
     ignition_launch_description = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [FindPackageShare("ros_ign_gazebo"), "/launch/ign_gazebo.launch.py"]
+            [FindPackageShare("ros_gz_sim"), "/launch/gz_sim.launch.py"]
         ),
-        launch_arguments={"ign_args": " -r -v 4 " + world_sdf.perform(context)}.items(),
+        launch_arguments={"gz_args": " -r -v 4 " + world_sdf.perform(context)}.items(),
     )
 
     # Bridge
@@ -100,9 +100,9 @@ def launch_setup(context, *args, **kwargs):
         package='ros_ign_bridge',
         executable='parameter_bridge',
         # parameters=[{'use_sim_time': use_sim_time}],
-        arguments=['/rgbd_camera/image@sensor_msgs/msg/Image@ignition.msgs.Image',
-                   '/rgbd_camera/depth_image@sensor_msgs/msg/Image@ignition.msgs.Image',
-                   '/rgbd_camera/points@sensor_msgs/msg/PointCloud2@ignition.msgs.PointCloudPacked',
+        arguments=['/rgbd_camera/image@sensor_msgs/msg/Image[ignition.msgs.Image',
+                   '/rgbd_camera/depth_image@sensor_msgs/msg/Image[ignition.msgs.Image',
+                   '/rgbd_camera/points@sensor_msgs/msg/PointCloud2[ignition.msgs.PointCloudPacked',
                    '/rgbd_camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo'],
         output='screen'
     )
